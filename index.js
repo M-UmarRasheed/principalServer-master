@@ -94,7 +94,7 @@ client.connect((err) => {
   
               LicenseUserCollection.insertMany(normalizedData).then((result) => {
                 if (result.insertedCount > 0)
-                  res.redirect("http://localhost:3000/users");
+                  res.redirect("http://3.254.126.176:3000/users");
               });
             }
           );
@@ -224,6 +224,7 @@ client.connect((err) => {
       SMS_LICENSE: key,
       UID: uid,
     }).toArray((err, docs) => {
+      console.log("🚀 ~ app.post ~ docs:", docs)
       if (docs.length !== 0) {
         res.send(docs[0]);
       }
